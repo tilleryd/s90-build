@@ -1,15 +1,16 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { Link, graphql } from 'gatsby'
-import styled from 'styled-components'
+import React from "react";
+import PropTypes from "prop-types";
+import { Link, graphql } from "gatsby";
+import styled from "styled-components";
 
-import { Layout, Article, Wrapper, Button, SectionTitle } from '../components'
+import { Layout, Article, Wrapper, Button, SectionTitle } from "../components";
 
 const Content = styled.div`
   grid-column: 2;
   box-shadow: 0 4px 120px rgba(0, 0, 0, 0.1);
   border-radius: 1rem;
   padding: 3rem 6rem;
+  background-color: ${props => props.theme.colors.bgLight};
   @media (max-width: ${props => props.theme.breakpoints.tablet}) {
     padding: 3rem 2rem;
   }
@@ -17,7 +18,7 @@ const Content = styled.div`
     padding: 2rem 1.5rem;
   }
   overflow: hidden;
-`
+`;
 
 const Hero = styled.div`
   grid-column: 2;
@@ -39,7 +40,33 @@ const Hero = styled.div`
       font-size: 1.45rem;
     }
   }
-`
+`;
+
+const Title = styled.span`
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  font-size: 4rem;
+  h1 {
+    margin-bottom: 1rem;
+    font-weight: 500;
+  }
+  h1:first-child {
+    color: rgb(225, 3, 3);
+    padding-right: 0.5rem;
+  }
+  h1:last-child {
+    color: black;
+  }
+`;
+
+const SubTitle = styled.div`
+  display: flex;
+  justify-content: center;
+  p {
+    font-size: 1.5rem;
+  }
+`;
 
 const IndexPage = ({
   data: {
@@ -49,22 +76,24 @@ const IndexPage = ({
   <Layout>
     <Wrapper>
       <Hero>
-        <h1>Hi.</h1>
-        <p>
-          I&apos;m John Doe, a Senior UX Developer with five years of industry experience, specializing in developing
-          React apps with the best UX users can get.
-        </p>
-        <Link to="/contact">
+        <Title>
+          <h1>HONDA</h1>
+          <h1>S90</h1>
+        </Title>
+        <SubTitle>
+          <p>a documented build</p>
+        </SubTitle>
+        {/* <Link to="/contact">
           <Button big>
             <svg width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
               <path d="M1764 11q33 24 27 64l-256 1536q-5 29-32 45-14 8-31 8-11 0-24-5l-453-185-242 295q-18 23-49 23-13 0-22-4-19-7-30.5-23.5t-11.5-36.5v-349l864-1059-1069 925-395-162q-37-14-40-55-2-40 32-59l1664-960q15-9 32-9 20 0 36 11z" />
             </svg>
             Contact
           </Button>
-        </Link>
+        </Link> */}
       </Hero>
       <Content>
-        <SectionTitle>Latest stories</SectionTitle>
+        <SectionTitle>Latest progress</SectionTitle>
         {postEdges.map(post => (
           <Article
             title={post.node.frontmatter.title}
@@ -79,9 +108,9 @@ const IndexPage = ({
       </Content>
     </Wrapper>
   </Layout>
-)
+);
 
-export default IndexPage
+export default IndexPage;
 
 IndexPage.propTypes = {
   data: PropTypes.shape({
@@ -89,7 +118,7 @@ IndexPage.propTypes = {
       edges: PropTypes.array.isRequired,
     }),
   }).isRequired,
-}
+};
 
 export const IndexQuery = graphql`
   query IndexQuery {
@@ -110,4 +139,4 @@ export const IndexQuery = graphql`
       }
     }
   }
-`
+`;

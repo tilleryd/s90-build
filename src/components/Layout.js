@@ -1,10 +1,10 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { StaticQuery, graphql } from 'gatsby'
-import styled, { ThemeProvider, createGlobalStyle } from 'styled-components'
+import React from "react";
+import PropTypes from "prop-types";
+import { StaticQuery, graphql } from "gatsby";
+import styled, { ThemeProvider, createGlobalStyle } from "styled-components";
 
-import SEO from './SEO'
-import theme from '../../config/theme'
+import SEO from "./SEO";
+import theme from "../../config/theme";
 
 const GlobalStyle = createGlobalStyle`
   *,
@@ -84,7 +84,7 @@ const GlobalStyle = createGlobalStyle`
   }
   h1, h2, h3, h4, h5, h6 {
     color: ${props => props.theme.colors.grey.dark};
-    font-family: ${props => props.theme.fontFamily.serif};
+    font-family: ${props => props.theme.fontFamily.sansSerif};
   }
   blockquote {
     font-style: italic;
@@ -184,7 +184,7 @@ const GlobalStyle = createGlobalStyle`
   [hidden] {
     display: none !important;
   }
-`
+`;
 
 const Footer = styled.footer`
   text-align: center;
@@ -192,7 +192,7 @@ const Footer = styled.footer`
   span {
     font-size: 0.75rem;
   }
-`
+`;
 
 const Layout = ({ children, customSEO }) => (
   <StaticQuery
@@ -210,23 +210,22 @@ const Layout = ({ children, customSEO }) => (
           <GlobalStyle />
           {children}
           <Footer>
-            &copy; 2019 by John Doe. All rights reserved. <br />
-            <a href="https://github.com/LekoArts/gatsby-starter-minimal-blog">GitHub Repository</a> <br />
-            <span>Last build: {data.site.buildTime}</span>
+            &copy; 2019 by Half Pint Motorcycles <br />
+            <span>Last updated: {data.site.buildTime}</span>
           </Footer>
         </React.Fragment>
       </ThemeProvider>
     )}
   />
-)
+);
 
-export default Layout
+export default Layout;
 
 Layout.propTypes = {
   children: PropTypes.oneOfType([PropTypes.array, PropTypes.node]).isRequired,
   customSEO: PropTypes.bool,
-}
+};
 
 Layout.defaultProps = {
   customSEO: false,
-}
+};
