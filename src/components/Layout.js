@@ -145,7 +145,7 @@ const GlobalStyle = createGlobalStyle`
   }
   table {
     border-collapse: collapse;
-    background-color: ${props => props.theme.colors.bg};
+    background-color: ${props => props.theme.colors.bgLight};
   }
   caption {
     padding-top: 1.5rem;
@@ -156,6 +156,9 @@ const GlobalStyle = createGlobalStyle`
   }
   th {
     text-align: left;
+  }
+  td {
+    padding-right: 1rem;
   }
   fieldset {
     min-width: 0;
