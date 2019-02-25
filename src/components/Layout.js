@@ -5,6 +5,7 @@ import styled, { ThemeProvider, createGlobalStyle } from "styled-components";
 
 import SEO from "./SEO";
 import theme from "../../config/theme";
+import bgImg from "../s90-left-front.jpg";
 
 const GlobalStyle = createGlobalStyle`
   *,
@@ -145,7 +146,7 @@ const GlobalStyle = createGlobalStyle`
   }
   table {
     border-collapse: collapse;
-    background-color: ${props => props.theme.colors.bgLight};
+    /* background-color: ${props => props.theme.colors.bgLight}; */
   }
   caption {
     padding-top: 1.5rem;
@@ -192,9 +193,18 @@ const GlobalStyle = createGlobalStyle`
 const Footer = styled.footer`
   text-align: center;
   padding: 3rem 1rem;
-  span {
-    font-size: 0.75rem;
-  }
+  font-size: 0.75rem;
+`;
+
+const BackgroundWrapper = styled.div`
+  background: url(${bgImg}) no-repeat;
+  opacity: 0.07;
+  z-index: 0;
+  position: fixed;
+  top: 0;
+  left: 25%;
+  height: 100%;
+  width: 100%;
 `;
 
 const Layout = ({ children, customSEO }) => (
@@ -210,11 +220,11 @@ const Layout = ({ children, customSEO }) => (
       <ThemeProvider theme={theme}>
         <React.Fragment>
           {!customSEO && <SEO buildTime={data.site.buildTime} />}
+          <BackgroundWrapper />
           <GlobalStyle />
           {children}
           <Footer>
             &copy; 2019 by Half Pint Motorcycles <br />
-            <span>Last updated: {data.site.buildTime}</span>
           </Footer>
         </React.Fragment>
       </ThemeProvider>

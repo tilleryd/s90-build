@@ -7,10 +7,10 @@ import { Layout, Article, Wrapper, Button, SectionTitle } from "../components";
 
 const Content = styled.div`
   grid-column: 2;
-  box-shadow: 0 4px 120px rgba(0, 0, 0, 0.1);
+  /* box-shadow: 0 4px 120px rgba(0, 0, 0, 0.1); */
   border-radius: 1rem;
   padding: 3rem 6rem;
-  background-color: ${props => props.theme.colors.bgLight};
+  /* background-color: ${props => props.theme.colors.bgLight}; */
   @media (max-width: ${props => props.theme.breakpoints.tablet}) {
     padding: 3rem 2rem;
   }
@@ -22,12 +22,12 @@ const Content = styled.div`
 
 const Hero = styled.div`
   grid-column: 2;
-  padding: 3rem 2rem 6rem 2rem;
+  padding: 3rem 2rem;
   text-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
   color: ${props => props.theme.colors.grey.dark};
 
   @media (max-width: ${props => props.theme.breakpoints.phone}) {
-    padding: 2rem 1rem 4rem 1rem;
+    padding: 2rem 1rem;
   }
 
   p {
@@ -80,9 +80,9 @@ const IndexPage = ({
           <h1>HONDA</h1>
           <h1>S90</h1>
         </Title>
-        <SubTitle>
-          <p>a documented build</p>
-        </SubTitle>
+        {/* <SubTitle>
+          <p>another build</p>
+        </SubTitle> */}
         {/* <Link to="/contact">
           <Button big>
             <svg width="1792" height="1792" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
@@ -94,7 +94,7 @@ const IndexPage = ({
       </Hero>
       <Content>
         <SectionTitle>Latest progress</SectionTitle>
-        {postEdges.map(post => (
+        {postEdges.map((post, idx) => (
           <Article
             title={post.node.frontmatter.title}
             date={post.node.frontmatter.date}
@@ -103,6 +103,7 @@ const IndexPage = ({
             slug={post.node.fields.slug}
             categories={post.node.frontmatter.categories}
             key={post.node.fields.slug}
+            index={idx === 1 ? 1 : postEdges.length - idx}
           />
         ))}
       </Content>

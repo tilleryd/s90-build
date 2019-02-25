@@ -3,7 +3,7 @@ import { lighten, rgb } from "polished";
 const colors = {
   primary: "#000", // Color for buttons or links
   primaryLight: lighten(0.05, "#4f4e4f"),
-  bg: rgb(254, 248, 206), // Background color
+  bg: "#d9d9d9", // Background color
   grey: {
     dark: "rgba(0, 0, 0, 0.9)",
     default: "rgba(0, 0, 0, 0.7)",
@@ -11,7 +11,7 @@ const colors = {
     ultraLight: "rgba(0, 0, 0, 0.25)",
   },
   white: "white",
-  bgLight: rgb(255, 252, 234), // Complimentary bg color
+  bgLight: "#fffded", // Complimentary bg color
 };
 
 const transitions = {

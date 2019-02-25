@@ -10,13 +10,13 @@ import config from "../../config";
 
 const Content = styled.article`
   grid-column: 2;
-  box-shadow: 0 4px 120px rgba(0, 0, 0, 0.1);
+  /* box-shadow: 0 4px 120px rgba(0, 0, 0, 0.1); */
   max-width: 1000px;
   border-radius: 1rem;
   padding: 2rem 4.5rem;
-  background-color: ${props => props.theme.colors.bgLight};
+  /* background-color: ${props => props.theme.colors.bgLight}; */
   z-index: 9000;
-  margin-top: -3rem;
+  /* margin-top: -3rem; */
   @media (max-width: ${props => props.theme.breakpoints.tablet}) {
     padding: 3rem 3rem;
   }
