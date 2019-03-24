@@ -103,7 +103,7 @@ const IndexPage = ({
             slug={post.node.fields.slug}
             categories={post.node.frontmatter.categories}
             key={post.node.fields.slug}
-            index={idx === 1 ? 1 : postEdges.length - idx}
+            index={postEdges.length - idx}
           />
         ))}
       </Content>
